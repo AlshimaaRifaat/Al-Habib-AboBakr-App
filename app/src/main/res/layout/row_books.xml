@@ -2,12 +2,12 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_140sdp"
+    android:layout_height="@dimen/_180sdp"
     android:orientation="horizontal"
     android:layout_margin="@dimen/_1sdp"
-    android:id="@+id/row_main_card_container"
+    android:id="@+id/row_books_card_container"
     >
-   <!-- <LinearLayout
+   <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -17,13 +17,14 @@
         <ImageView
             android:layout_margin="@dimen/_5sdp"
             android:layout_gravity="center"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_70sdp"
-            android:id="@+id/row_items_image"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:scaleType="fitXY"
+            android:id="@+id/row_books_image"
             />
         <TextView
             android:text="date"
-            android:id="@+id/row_items_date"
+            android:id="@+id/row_books_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -34,7 +35,7 @@
             android:textStyle="bold"/>
         <TextView
             android:text="title"
-            android:id="@+id/row_items_names"
+            android:id="@+id/row_books_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -43,6 +44,6 @@
             android:gravity="center"
             android:textStyle="bold"
             android:layout_marginBottom="@dimen/_7sdp"/>
-    </LinearLayout>-->
+    </LinearLayout>
 
 </android.support.v7.widget.CardView>

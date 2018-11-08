@@ -2,5 +2,6 @@
 <resources>
     <string name="colleges">الكليات والمعاهد</string>
     <string name="view">View</string>
+    <string name="no_internet">غير متصل بالانترنت , من فضلك تاكد من اتصال جهازك بالانترنت</string>
 
 </resources>

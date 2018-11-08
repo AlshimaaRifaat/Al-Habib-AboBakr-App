@@ -1,6 +1,5 @@
 package com.example.shosho.elsheikh.adapter;
 
-import android.content.ClipData;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
@@ -11,10 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.shosho.elsheikh.R;
-import com.example.shosho.elsheikh.view.PicturesDetails;
+import com.example.shosho.elsheikh.view.ItemsView;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolders> {
 
@@ -22,7 +20,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolders> {
     private String []namesArray;
     private int []imageArray;
 
-    PicturesDetails details;
+    ItemsView details;
 
     public HomeAdapter(Context context, String[] namesArray, int[] imageArray) {
         this.context = context;
@@ -37,7 +35,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolders> {
        ViewHolders holders=new ViewHolders(view);
         return holders;
     }
-     public void OnClick(PicturesDetails details){
+     public void OnClick(ItemsView details){
         this.details=details;
      }
     @Override
@@ -50,7 +48,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolders> {
         holder.itemView.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                details.picturesDetails( position );
+                details.showItemsDetails( position );
             }
         } );
 

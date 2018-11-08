@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.shosho.elsheikh.R;
-import com.example.shosho.elsheikh.view.PicturesDetails;
 
 /**
  * A simple {@link Fragment} subclass.

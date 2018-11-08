@@ -11,12 +11,12 @@ import android.view.ViewGroup;
 
 import com.example.shosho.elsheikh.R;
 import com.example.shosho.elsheikh.adapter.HomeAdapter;
-import com.example.shosho.elsheikh.view.PicturesDetails;
+import com.example.shosho.elsheikh.view.ItemsView;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment implements PicturesDetails {
+public class HomeFragment extends Fragment implements ItemsView {
     RecyclerView recyclerView;
     HomeAdapter recyclerAdapter;
 
@@ -43,19 +43,19 @@ public class HomeFragment extends Fragment implements PicturesDetails {
     }
 
     @Override
-    public void picturesDetails(int position) {
+    public void showItemsDetails(int position) {
         if(position==0){
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,new CollegesFragment()).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,new CollegesFragment()).addToBackStack( null ).commit();
         }else if(position==1){
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,new TripsFragment()).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,new TripsFragment()).addToBackStack( null ).commit();
         }else if(position==2){
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,new BooksFragment()).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,new BooksFragment()).addToBackStack( null ).commit();
         }else if(position==3){
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,new PoetryFragment()).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,new PoetryFragment()).addToBackStack( null ).commit();
         }else if(position==4){
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,new TranslationFragment()).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,new TranslationFragment()).addToBackStack( null ).commit();
         }else if(position==5){
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,new PicturesFragment()).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,new PicturesFragment()).addToBackStack( null ).commit();
         }
     }
 }

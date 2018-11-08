@@ -7,7 +7,7 @@
     tools:context=".fragments.DetailsFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ImageView
+  <!--  <ImageView
         android:id="@+id/details_banner"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_125sdp"
@@ -63,6 +63,6 @@
         android:layout_centerInParent="true"
         android:layout_marginBottom="@dimen/_10sdp"
         android:background="@drawable/download_button"
-        />
+        />-->
 
 </RelativeLayout>
