@@ -4,21 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".fragments.DetailsFragment">
+    tools:context=".fragments.DetailsBookFragment">
 
     <!-- TODO: Update blank fragment layout -->
-  <!--  <ImageView
+    <ImageView
         android:id="@+id/details_banner"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_125sdp"
         android:background="@drawable/banner"/>
     <ImageView
-        android:layout_width="@dimen/_120sdp"
-        android:layout_height="@dimen/_120sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/details_banner"
         android:layout_marginTop="@dimen/_5sdp"
-        android:background="@drawable/back"
+        android:scaleType="fitXY"
         android:layout_centerHorizontal="true"
+
         android:id="@+id/details_image"/>
     <TextView
         android:layout_width="wrap_content"
@@ -63,6 +64,6 @@
         android:layout_centerInParent="true"
         android:layout_marginBottom="@dimen/_10sdp"
         android:background="@drawable/download_button"
-        />-->
+        />
 
 </RelativeLayout>

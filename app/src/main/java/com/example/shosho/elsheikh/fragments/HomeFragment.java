@@ -23,8 +23,6 @@ public class HomeFragment extends Fragment implements ItemsView {
     public HomeFragment() {
         // Required empty public constructor
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
