@@ -2,6 +2,7 @@ package com.example.shosho.elsheikh.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -52,7 +53,19 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.date.setText(booksData.get( position ).getCDate());
+        Typeface customFontLight = Typeface.createFromAsset( context.getAssets(), "Fonts/SST Arabic Light.ttf" );
+        holder.date.setTypeface( customFontLight );
         holder.title.setText(booksData.get( position ).getTitle());
+        Typeface customFontMedium = Typeface.createFromAsset( context.getAssets(), "Fonts/SST Arabic Medium.ttf" );
+        holder.title.setTypeface( customFontMedium );
+     String Description= booksData.get( position ).getDescription() ;
+     if(Description.length()>50)
+     {
+         Description.substring(0,50  );
+         Description+="...";
+     }
+     holder.description.setText( Description );
+
         Picasso.with( context )
                 .load( "http://alhabib-abobakr.com/uploads/"+booksData.get( position ).getCImg() )
                 .placeholder( R.drawable.ic_launcher_background )
@@ -81,11 +94,13 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder> 
         private ImageView imageView;
         private TextView date;
         private TextView title;
+        private TextView description;
         public ViewHolder(View itemView) {
             super( itemView );
             imageView=itemView.findViewById( R.id.row_books_image );
             date=itemView.findViewById( R.id.row_books_date );
             title=itemView.findViewById( R.id.row_books_title );
+            description=itemView.findViewById( R.id.row_books_description);
 
 
         }

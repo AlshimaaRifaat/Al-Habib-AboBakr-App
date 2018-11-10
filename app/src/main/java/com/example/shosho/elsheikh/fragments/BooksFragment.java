@@ -53,7 +53,7 @@ public class BooksFragment extends Fragment implements BookView,
        networkConnection=new NetworkConnection( getContext() );
        mSwipeRefreshLayout=view.findViewById( R.id.books_swipRefresh );
        bookPresenter=new BookPresenter( getContext(),this );
-       bookPresenter.getBooksResult( "en","book" );
+       bookPresenter.getBooksResult( "ar","book" );
 
 
         swipRefresh();
@@ -100,8 +100,6 @@ public class BooksFragment extends Fragment implements BookView,
         bookPresenter.getBooksResult( "ar","book" );
 
     }
-
-
 
     @Override
     public void showBookDetails(BookDetails bookDetails) {
