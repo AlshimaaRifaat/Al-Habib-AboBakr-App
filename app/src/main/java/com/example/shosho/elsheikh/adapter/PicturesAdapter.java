@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.example.shosho.elsheikh.R;
 import com.example.shosho.elsheikh.model.PictureData;
+import com.example.shosho.elsheikh.view.DetailsBookView;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

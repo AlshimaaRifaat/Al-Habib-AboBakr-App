@@ -55,7 +55,7 @@ public class BookPresenter {
 
             @Override
             public void onFailure(Call<BooksResponse> call, Throwable t) {
-                Toast.makeText( context, "error", Toast.LENGTH_SHORT ).show();
+                Toast.makeText( context, "غير متصل بالانترنت ,من فضلك تاكد من اتصالك بالانترنت", Toast.LENGTH_SHORT ).show();
 
             }
         } );

@@ -95,7 +95,6 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder> 
             title=itemView.findViewById( R.id.row_books_title );
            description=itemView.findViewById( R.id.row_books_description);
 
-
         }
     }
 }

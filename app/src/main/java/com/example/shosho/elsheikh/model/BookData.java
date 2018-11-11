@@ -19,6 +19,9 @@ public class BookData {
     @SerializedName("c_book")
     @Expose
     private String cBook;
+    @SerializedName("c_name")
+    @Expose
+    private String cName;
 
     public String getTitle() {
         return title;
@@ -58,5 +61,12 @@ public class BookData {
 
     public void setCBook(String cBook) {
         this.cBook = cBook;
+    }
+    public String getCName() {
+        return cName;
+    }
+
+    public void setCName(String cName) {
+        this.cName = cName;
     }
 }

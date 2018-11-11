@@ -24,7 +24,7 @@ public class PicturePresenter {
         this.context = context;
         this.pictureView = pictureView;
     }
-    public void getBooksResult(String lang,String section)
+    public void getPicturesResult(String lang,String section)
     {
         Map<String,String> map=new HashMap<>(  );
         map.put( "lang","ar" );
@@ -44,6 +44,7 @@ public class PicturePresenter {
             @Override
             public void onFailure(Call<PicturesResponse> call, Throwable t) {
                 pictureView.error();
+                Toast.makeText( context, "غير متصل بالانترنت ,من فضلك تاكد من اتصالك بالانترنت", Toast.LENGTH_SHORT ).show();
 
             }
         } );

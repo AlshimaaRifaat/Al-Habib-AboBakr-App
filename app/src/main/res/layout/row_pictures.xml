@@ -2,7 +2,7 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_190sdp"
+    android:layout_height="match_parent"
     android:orientation="horizontal"
     android:layout_margin="@dimen/_1sdp"
     android:id="@+id/row_pictures_card_container">
