@@ -70,6 +70,7 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder> 
                 bookDetails.setTitle( booksData.get( position ).getTitle() );
                 bookDetails.setDate( booksData.get( position ).getCDate() );
               bookDetails .setDesc( booksData.get( position ).getDescription() );
+              bookDetails.setPDFurl( booksData.get( position ).getCBook() );
                 detailsBookView.showBookDetails( bookDetails );
             }
         } );

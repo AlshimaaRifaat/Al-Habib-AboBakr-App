@@ -109,6 +109,7 @@ public class BooksFragment extends Fragment implements BookView,
         bundle.putString("title", bookDetails.getTitle());
         bundle.putString("date", bookDetails.getDate());
         bundle.putString("description", bookDetails.getDesc());
+        bundle.putString( "url",bookDetails.getPDFurl() );
         detailsFragment.setArguments(bundle);
         getFragmentManager().beginTransaction().replace( R.id.main_frame_container,
                detailsFragment )

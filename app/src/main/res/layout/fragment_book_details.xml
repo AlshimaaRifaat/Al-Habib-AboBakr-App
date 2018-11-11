@@ -60,6 +60,7 @@
         android:layout_centerHorizontal="true"/>
 
         <Button
+            android:id="@+id/details_book_download"
             android:layout_width="@dimen/_70sdp"
             android:layout_height="@dimen/_50sdp"
             android:layout_below="@+id/details_description"

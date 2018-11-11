@@ -38,7 +38,7 @@ public class BookPresenter {
         Map<String,String> map=new HashMap<>(  );
 //        map.put( "api_token", "100");
         map.put( "lang","ar" );
-        map.put( "section","book" );
+        map.put( "section",section );
         Service service= Client.getClient().create( Service.class );
         Call<BooksResponse> call=service.getBooksData( map );
         call.enqueue( new Callback<BooksResponse>() {

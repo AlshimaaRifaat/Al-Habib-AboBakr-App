@@ -3,20 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff"
     tools:context=".fragments.CollegesFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <ImageView
         android:id="@+id/colleges_banner"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_125sdp"
         android:background="@drawable/banner"/>
-    <android.support.v7.widget.RecyclerView
-        android:padding="@dimen/_1sdp"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/colleges_swipRefresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/colleges_banner"
-        android:id="@+id/colleges_recycler_items"></android.support.v7.widget.RecyclerView>
-
+        android:layout_below="@+id/colleges_banner">
+        <android.support.v7.widget.RecyclerView
+            android:padding="@dimen/_1sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/colleges_banner"
+            android:id="@+id/colleges_recycler_items">
+        </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 </RelativeLayout>

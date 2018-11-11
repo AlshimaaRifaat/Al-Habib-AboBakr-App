@@ -8,6 +8,15 @@ public class BookDetails {
     private String desc;
     private String Img;
     private String Date;
+    private String PDFurl;
+
+    public String getPDFurl() {
+        return PDFurl;
+    }
+
+    public void setPDFurl(String PDFurl) {
+        this.PDFurl = PDFurl;
+    }
 
     public void setTitle(String title) {
         Title = title;
