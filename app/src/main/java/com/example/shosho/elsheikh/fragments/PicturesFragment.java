@@ -8,8 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.ImageView;
 
 import com.example.shosho.elsheikh.R;
 import com.example.shosho.elsheikh.adapter.PicturesAdapter;
@@ -47,6 +45,7 @@ PicturesAdapter picturesAdapter;
     @Override
     public void showPicturesData(List<PictureData> pictureData) {
         picturesAdapter=new PicturesAdapter( getContext(),pictureData );
+
         recyclerView.setLayoutManager( new GridLayoutManager( getContext(),2 ) );
         recyclerView.setAdapter( picturesAdapter );
 
@@ -56,4 +55,6 @@ PicturesAdapter picturesAdapter;
     public void error() {
 
     }
+
+
 }

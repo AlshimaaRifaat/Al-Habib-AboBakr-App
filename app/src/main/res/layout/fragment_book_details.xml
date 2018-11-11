@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
     tools:context=".fragments.DetailsBookFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
@@ -13,13 +16,12 @@
         android:layout_height="@dimen/_125sdp"
         android:background="@drawable/banner"/>
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_140sdp"
+        android:layout_height="@dimen/_140sdp"
         android:layout_below="@+id/details_banner"
         android:layout_marginTop="@dimen/_5sdp"
         android:scaleType="fitXY"
         android:layout_centerHorizontal="true"
-
         android:id="@+id/details_image"/>
     <TextView
         android:layout_width="wrap_content"
@@ -47,6 +49,8 @@
         android:id="@+id/details_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
         android:text="description"
         android:textColor="#000"
         android:textStyle="bold"
@@ -55,15 +59,16 @@
         android:layout_below="@+id/details_date"
         android:layout_centerHorizontal="true"/>
 
-    <Button
-        android:layout_width="@dimen/_90sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_alignParentBottom="true"
-        android:text="@string/view"
-        android:textColor="#000"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:background="@drawable/download_button"
-        />
+        <Button
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_below="@+id/details_description"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/download_button"
+            android:text="@string/view"
+            android:textColor="#000"
+            android:layout_marginBottom="@dimen/_2sdp"/>
+    </RelativeLayout>
 
-</RelativeLayout>
+</ScrollView>

@@ -1,6 +1,7 @@
 package com.example.shosho.elsheikh.fragments;
 
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -44,10 +45,12 @@ TextView description;
 
         Picasso.with( getContext() )
                 .load( "http://alhabib-abobakr.com/uploads/"+Image )
-                .placeholder( R.drawable.ic_launcher_background )
                 .into(imageView);
         title.setText( Title );
         date.setText( Date );
+
+        Typeface customFontLight = Typeface.createFromAsset( getActivity().getAssets(), "Fonts/SST Arabic Light.ttf" );
+        description.setTypeface( customFontLight );
         description.setText( Description );
 
         }

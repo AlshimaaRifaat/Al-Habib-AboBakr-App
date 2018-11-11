@@ -4,40 +4,40 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class BookDetails {
-    private String title;
-    private String description;
-    private String cImg;
-    private String cDate;
-
-    public String getTitle() {
-        return title;
-    }
+    private String Title;
+    private String desc;
+    private String Img;
+    private String Date;
 
     public void setTitle(String title) {
-        this.title = title;
+        Title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setImg(String img) {
+        Img = img;
     }
 
-    public String getcImg() {
-        return cImg;
+    public void setDate(String date) {
+        Date = date;
     }
 
-    public void setcImg(String cImg) {
-        this.cImg = cImg;
+    public String getTitle() {
+        return Title;
     }
 
-    public String getcDate() {
-        return cDate;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setcDate(String cDate) {
-        this.cDate = cDate;
+    public String getImg() {
+        return Img;
+    }
+
+    public String getDate() {
+        return Date;
     }
 }

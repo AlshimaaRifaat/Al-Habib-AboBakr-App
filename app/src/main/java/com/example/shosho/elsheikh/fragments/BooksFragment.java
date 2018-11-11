@@ -104,13 +104,13 @@ public class BooksFragment extends Fragment implements BookView,
     @Override
     public void showBookDetails(BookDetails bookDetails) {
         DetailsBookFragment detailsFragment=new DetailsBookFragment();
-                Bundle bundle = new Bundle();
-        bundle.putString("image", bookDetails.getcImg());
+        Bundle bundle = new Bundle();
+        bundle.putString("image", bookDetails.getImg());
         bundle.putString("title", bookDetails.getTitle());
-        bundle.putString("date", bookDetails.getcDate());
-        bundle.putString("description", bookDetails.getcDate());
+        bundle.putString("date", bookDetails.getDate());
+        bundle.putString("description", bookDetails.getDesc());
         detailsFragment.setArguments(bundle);
-       getFragmentManager().beginTransaction().replace( R.id.main_frame_container,
+        getFragmentManager().beginTransaction().replace( R.id.main_frame_container,
                detailsFragment )
                 .addToBackStack( null).commit();
 

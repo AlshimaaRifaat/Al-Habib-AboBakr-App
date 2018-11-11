@@ -31,9 +31,6 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder> 
     DetailsBookView detailsBookView;
   //  BookData bookData=new BookData();
 
-
-
-
     public BooksAdapter(Context context, List<BookData> booksData) {
         this.context = context;
         this.booksData = booksData;
@@ -55,29 +52,24 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder> 
         holder.date.setText(booksData.get( position ).getCDate());
         Typeface customFontLight = Typeface.createFromAsset( context.getAssets(), "Fonts/SST Arabic Light.ttf" );
         holder.date.setTypeface( customFontLight );
+
         holder.title.setText(booksData.get( position ).getTitle());
         Typeface customFontMedium = Typeface.createFromAsset( context.getAssets(), "Fonts/SST Arabic Medium.ttf" );
         holder.title.setTypeface( customFontMedium );
-     String Description= booksData.get( position ).getDescription() ;
-     if(Description.length()>50)
-     {
-         Description.substring(0,50  );
-         Description+="...";
-     }
-     holder.description.setText( Description );
+
+
 
         Picasso.with( context )
                 .load( "http://alhabib-abobakr.com/uploads/"+booksData.get( position ).getCImg() )
-                .placeholder( R.drawable.ic_launcher_background )
                 .into(holder.imageView);
         holder.itemView.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 BookDetails bookDetails=new BookDetails();
-                bookDetails.setcImg( booksData.get( position ).getCImg() );
+                bookDetails.setImg( booksData.get( position ).getCImg() );
                 bookDetails.setTitle( booksData.get( position ).getTitle() );
-                bookDetails.setcDate( booksData.get( position ).getCDate() );
-               bookDetails .setDescription( booksData.get( position ).getDescription() );
+                bookDetails.setDate( booksData.get( position ).getCDate() );
+              bookDetails .setDesc( booksData.get( position ).getDescription() );
                 detailsBookView.showBookDetails( bookDetails );
             }
         } );
@@ -94,13 +86,13 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder> 
         private ImageView imageView;
         private TextView date;
         private TextView title;
-        private TextView description;
+      private TextView description;
         public ViewHolder(View itemView) {
             super( itemView );
             imageView=itemView.findViewById( R.id.row_books_image );
             date=itemView.findViewById( R.id.row_books_date );
             title=itemView.findViewById( R.id.row_books_title );
-            description=itemView.findViewById( R.id.row_books_description);
+           description=itemView.findViewById( R.id.row_books_description);
 
 
         }
