@@ -28,7 +28,7 @@ public class PicturePresenter {
     {
         Map<String,String> map=new HashMap<>(  );
         map.put( "lang","ar" );
-        map.put( "section","gallary" );
+        map.put( "section",section );
         Service service= Client.getClient().create( Service.class );
         Call<PicturesResponse> call=service.getPicturseData( map );
         call.enqueue( new Callback<PicturesResponse>() {

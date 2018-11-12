@@ -69,6 +69,7 @@ NetworkConnection networkConnection;
                 {
                     mSwipeRefreshLayout.setRefreshing( true );
                     picturePresenter.getPicturesResult( "ar","gallary" );
+
                 }
             }
         } );
@@ -79,7 +80,7 @@ NetworkConnection networkConnection;
     public void showPicturesData(List<PictureData> pictureData) {
         banne=pictureData;
         picturesAdapter=new PicturesAdapter( getContext(),pictureData );
-
+        mSwipeRefreshLayout.setRefreshing( true );
       LinearLayoutManager  linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
       recyclerView.setLayoutManager( linearLayoutManager );
@@ -88,6 +89,7 @@ NetworkConnection networkConnection;
     Timer timer = new Timer();
     timer.scheduleAtFixedRate( new AutoScrollTask(), 1000, 2000 );
    }
+   mSwipeRefreshLayout.setRefreshing( false );
     }
 
     @Override

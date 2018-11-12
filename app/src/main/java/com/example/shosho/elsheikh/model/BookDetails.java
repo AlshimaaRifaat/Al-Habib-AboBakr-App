@@ -9,6 +9,15 @@ public class BookDetails {
     private String Img;
     private String Date;
     private String PDFurl;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getPDFurl() {
         return PDFurl;

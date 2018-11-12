@@ -31,7 +31,7 @@ public class HomeFragment extends Fragment implements ItemsView {
         int []images={R.drawable.colleges,R.drawable.trips,R.drawable.books,
                 R.drawable.poetry,R.drawable.translation,R.drawable.pictures};
         String []names={"الكليات والمعاهد","الرحلات الدعويه", "كتب مؤلفات",
-                "اشعار","ترجمه","صور"};
+                "قصائد","ترجمه","صور"};
         recyclerView=view.findViewById( R.id.home_recycler_items );
         recyclerAdapter=new HomeAdapter( getContext(),names,images );
         recyclerAdapter.OnClick( this );

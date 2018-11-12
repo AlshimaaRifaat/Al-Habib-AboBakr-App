@@ -11,6 +11,10 @@ public class PictureData {
     @Expose
     private String cImg;
 
+    @SerializedName("c_link")
+    @Expose
+    private String cLink;
+
     public String getCId() {
         return cId;
     }
@@ -25,6 +29,14 @@ public class PictureData {
 
     public void setCImg(String cImg) {
         this.cImg = cImg;
+    }
+
+    public String getCLink() {
+        return cLink;
+    }
+
+    public void setCLink(String cLink) {
+        this.cLink = cLink;
     }
 
 }
