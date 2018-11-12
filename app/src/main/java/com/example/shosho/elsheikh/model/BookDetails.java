@@ -11,6 +11,10 @@ public class BookDetails {
     private String PDFurl;
     private String name;
 
+
+
+
+
     public String getName() {
         return name;
     }

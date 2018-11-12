@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.shosho.elsheikh.NetworkConnection;
 import com.example.shosho.elsheikh.R;
@@ -16,6 +17,7 @@ import com.example.shosho.elsheikh.adapter.PicturesAdapter;
 import com.example.shosho.elsheikh.adapter.PoetryAdapter;
 import com.example.shosho.elsheikh.model.PictureData;
 import com.example.shosho.elsheikh.presenter.PicturePresenter;
+import com.example.shosho.elsheikh.view.Link_View;
 import com.example.shosho.elsheikh.view.PictureView;
 
 import java.util.List;
@@ -23,13 +25,15 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PoetryFragment extends Fragment implements PictureView,SwipeRefreshLayout.OnRefreshListener{
+public class PoetryFragment extends Fragment implements Link_View,PictureView,SwipeRefreshLayout.OnRefreshListener{
 
     RecyclerView recyclerView;
     PicturePresenter picturePresenter;
     PoetryAdapter poetryAdapter;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     NetworkConnection networkConnection;
+
+
     public PoetryFragment() {
         // Required empty public constructor
     }
@@ -46,6 +50,7 @@ public class PoetryFragment extends Fragment implements PictureView,SwipeRefresh
         picturePresenter=new PicturePresenter( getContext(),this );
         picturePresenter.getPicturesResult( "ar","peotry" );
         swipRefresh();
+
         return view;
     }
 
@@ -75,6 +80,7 @@ public class PoetryFragment extends Fragment implements PictureView,SwipeRefresh
     @Override
     public void showPicturesData(List<PictureData> pictureData) {
          poetryAdapter=new PoetryAdapter( getContext(),pictureData );
+         poetryAdapter.onclick( this );
         mSwipeRefreshLayout.setRefreshing( true );
         recyclerView.setLayoutManager( new GridLayoutManager( getContext(), 2 ) );
         recyclerView.setAdapter( poetryAdapter );
@@ -85,6 +91,19 @@ public class PoetryFragment extends Fragment implements PictureView,SwipeRefresh
     @Override
     public void error() {
         mSwipeRefreshLayout.setRefreshing( false );
+
+    }
+
+    @Override
+    public void link(String vedio) {
+        DetailsPoetryFragment detailsPoetryFragment=new DetailsPoetryFragment();
+        Bundle bundle=new Bundle(  );
+        bundle.putString( "video_link",vedio);
+        detailsPoetryFragment.setArguments(bundle);
+        getFragmentManager().beginTransaction().replace( R.id.main_frame_container,
+                detailsPoetryFragment )
+                .addToBackStack( null).commit();
+
 
     }
 }
