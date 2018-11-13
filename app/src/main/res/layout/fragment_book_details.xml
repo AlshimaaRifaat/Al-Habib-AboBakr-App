@@ -61,14 +61,15 @@
 
         <Button
             android:id="@+id/details_book_download"
-            android:layout_width="@dimen/_70sdp"
+            android:layout_width="@dimen/_120sdp"
             android:layout_height="@dimen/_50sdp"
             android:layout_below="@+id/details_description"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_5sdp"
             android:background="@drawable/download_button"
             android:text="@string/view"
-            android:textColor="#000"
+            android:textSize="@dimen/_15sdp"
+            android:textColor="#ffffff"
             android:layout_marginBottom="@dimen/_2sdp"/>
     </RelativeLayout>
 
