@@ -2,21 +2,24 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#fff"
     tools:context=".fragments.HomeFragment">
-
+<android.support.v4.widget.SwipeRefreshLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_140sdp"
+    android:id="@+id/home_swip_refresh_slider">
     <!-- TODO: Update blank fragment layout -->
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="@dimen/_140sdp"
         android:id="@+id/home_recycler_slider"></android.support.v7.widget.RecyclerView>
-
+</android.support.v4.widget.SwipeRefreshLayout>
       <android.support.v7.widget.RecyclerView
          android:padding="@dimen/_1sdp"
          android:layout_width="match_parent"
          android:layout_height="match_parent"
-         android:layout_below="@+id/home_recycler_slider"
+         android:layout_below="@+id/home_swip_refresh_slider"
          android:id="@+id/home_recycler_items"
           ></android.support.v7.widget.RecyclerView>
 

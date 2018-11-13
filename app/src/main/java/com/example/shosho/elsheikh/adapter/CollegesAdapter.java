@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.shosho.elsheikh.R;
 import com.example.shosho.elsheikh.model.BookData;
 import com.example.shosho.elsheikh.model.BookDetails;
 import com.example.shosho.elsheikh.view.DetailsBookView;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -40,16 +42,28 @@ public class CollegesAdapter extends RecyclerView.Adapter<CollegesAdapter.ViewHo
         this.detailsBookView=detailsBookView;
     }
     @Override
-    public void onBindViewHolder(@NonNull CollegesAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final CollegesAdapter.ViewHolder holder, final int position) {
 
 
         holder.title.setText(booksData.get( position ).getTitle());
         Typeface customFontMedium = Typeface.createFromAsset( context.getAssets(), "Fonts/SST Arabic Medium.ttf" );
         holder.title.setTypeface( customFontMedium );
 
+        holder.progressBar.setVisibility( View.VISIBLE );
         Picasso.with( context )
                 .load( "http://alhabib-abobakr.com/uploads/"+booksData.get( position ).getCImg() )
-                .into(holder.imageView);
+                .into( holder.imageView, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        holder.progressBar.setVisibility( View.GONE );
+                    }
+
+                    @Override
+                    public void onError() {
+                        holder.progressBar.setVisibility( View.GONE );
+
+                    }
+                } );
         holder.itemView.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,11 +87,13 @@ public class CollegesAdapter extends RecyclerView.Adapter<CollegesAdapter.ViewHo
         private ImageView imageView;
         private TextView title;
         private TextView description;
+        private ProgressBar progressBar;
         public ViewHolder(View itemView) {
             super( itemView );
             imageView=itemView.findViewById( R.id.row_colleges_image );
             title=itemView.findViewById( R.id.row_colleges_title );
             description=itemView.findViewById( R.id.row_colleges_description);
+            progressBar=itemView.findViewById( R.id. row_colleges_progress_bar);
 
 
         }

@@ -28,14 +28,17 @@ import java.util.TimerTask;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment implements ItemsView,PictureView {
+public class HomeFragment extends Fragment implements ItemsView,PictureView,SwipeRefreshLayout.OnRefreshListener {
     RecyclerView recyclerView;
     HomeAdapter recyclerAdapter;
 
     RecyclerView recyclerView_slider;
     PicturePresenter picturePresenter;
     SliderAdapter sliderAdapter;
+
+    private SwipeRefreshLayout swipeRefreshLayout;
     NetworkConnection networkConnection;
+
 
     int position;
     boolean end;
@@ -49,11 +52,13 @@ public class HomeFragment extends Fragment implements ItemsView,PictureView {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
          view= inflater.inflate( R.layout.fragment_home, container, false );
+         swipeRefreshLayout=view.findViewById( R.id.home_swip_refresh_slider );
+        networkConnection=new NetworkConnection( getContext() );
         Recycle();
         Home();
         Slider();
 
-//        networkConnection=new NetworkConnection( getContext() );
+
 
         return view;
     }
@@ -109,9 +114,27 @@ public class HomeFragment extends Fragment implements ItemsView,PictureView {
         if(pictureData.size()>1) {
             Timer timer = new Timer();
             timer.scheduleAtFixedRate( new AutoScrollTask(), 1000, 3000 );
-            ;
         }
+        swipeRefreshLayout.setRefreshing( false );
     }
+
+    @Override
+    public void onRefresh() {
+        swipeRefreshLayout.setColorSchemeResources( android.R.color.holo_orange_dark );
+        swipeRefreshLayout.setEnabled( true );
+        swipeRefreshLayout.setOnRefreshListener( this );
+        swipeRefreshLayout.post( new Runnable() {
+            @Override
+            public void run() {
+                if(networkConnection.isNetworkAvailable( getContext() ));
+                swipeRefreshLayout.setRefreshing( true );
+                picturePresenter.getPicturesResult( "ar","slider" );
+
+            }
+        } );
+
+    }
+
     public class AutoScrollTask extends TimerTask
     {
 
@@ -139,6 +162,6 @@ public class HomeFragment extends Fragment implements ItemsView,PictureView {
 
     @Override
     public void error() {
-
+swipeRefreshLayout.setRefreshing( false );
     }
 }
