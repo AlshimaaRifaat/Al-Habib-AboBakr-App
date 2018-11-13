@@ -41,11 +41,11 @@ public class PDFUtils {
     public static void showPDFUrl(final Context context, final String pdfUrl) {
         String[] pdfSplit = pdfUrl.split("/");
         PDF_NAME = pdfSplit[pdfSplit.length-1];
-        if (isPDFSupported(context)) {
-            downloadAndOpenPDF(context, pdfUrl);
-        } else {
+//        if (isPDFSupported(context)) {
+//            downloadAndOpenPDF(context, pdfUrl);
+//        } else {
             askToOpenPDFThroughGoogleDrive(context, pdfUrl);
-        }
+//        }
     }
 
 

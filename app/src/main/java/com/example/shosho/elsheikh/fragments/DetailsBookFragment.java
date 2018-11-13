@@ -46,7 +46,13 @@ Button downloadPDF;
         downloadPDF.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PDFUtils.showPDFUrl(getContext(),URL);
+                if(URL!=null)
+                {
+                    PDFUtils.showPDFUrl(getContext(),URL);
+                }else
+                {
+                    downloadPDF.setVisibility( View.GONE );
+                }
             }
         } );
         Bundle bundle = this.getArguments();

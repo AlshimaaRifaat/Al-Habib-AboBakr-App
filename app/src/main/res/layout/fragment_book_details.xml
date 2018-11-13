@@ -70,7 +70,8 @@
             android:text="@string/view"
             android:textSize="@dimen/_15sdp"
             android:textColor="#ffffff"
-            android:layout_marginBottom="@dimen/_2sdp"/>
+            android:layout_marginBottom="@dimen/_2sdp"
+            />
     </RelativeLayout>
 
 </ScrollView>

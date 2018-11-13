@@ -2,6 +2,7 @@ package com.example.shosho.elsheikh.fragments;
 
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
@@ -10,6 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.shosho.elsheikh.NetworkConnection;
 import com.example.shosho.elsheikh.R;
@@ -44,6 +47,7 @@ public class HomeFragment extends Fragment implements ItemsView,PictureView,Swip
     boolean end;
     List<PictureData> banner=new ArrayList<>(  );
     View view;
+    RelativeLayout relativeLayout;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -53,14 +57,29 @@ public class HomeFragment extends Fragment implements ItemsView,PictureView,Swip
         // Inflate the layout for this fragment
          view= inflater.inflate( R.layout.fragment_home, container, false );
          swipeRefreshLayout=view.findViewById( R.id.home_swip_refresh_slider );
+         relativeLayout=view.findViewById( R.id.Relative );
         networkConnection=new NetworkConnection( getContext() );
         Recycle();
         Home();
         Slider();
-
+        SwipRefresh();
 
 
         return view;
+    }
+    public void SwipRefresh(){
+        swipeRefreshLayout.setColorSchemeResources( android.R.color.holo_orange_dark );
+        swipeRefreshLayout.setEnabled( true );
+        swipeRefreshLayout.setOnRefreshListener( this );
+        swipeRefreshLayout.post( new Runnable() {
+            @Override
+            public void run() {
+                if(networkConnection.isNetworkAvailable( getContext() ));
+                swipeRefreshLayout.setRefreshing( true );
+                picturePresenter.getPicturesResult( "ar","slider" );
+
+            }
+        } );
     }
     public void Slider(){
         picturePresenter=new PicturePresenter( getContext(),this );
@@ -120,18 +139,17 @@ public class HomeFragment extends Fragment implements ItemsView,PictureView,Swip
 
     @Override
     public void onRefresh() {
-        swipeRefreshLayout.setColorSchemeResources( android.R.color.holo_orange_dark );
-        swipeRefreshLayout.setEnabled( true );
-        swipeRefreshLayout.setOnRefreshListener( this );
-        swipeRefreshLayout.post( new Runnable() {
-            @Override
-            public void run() {
-                if(networkConnection.isNetworkAvailable( getContext() ));
-                swipeRefreshLayout.setRefreshing( true );
-                picturePresenter.getPicturesResult( "ar","slider" );
+        if(networkConnection.isNetworkAvailable( getContext() ))
+        {
+            swipeRefreshLayout.setRefreshing( true );
+            picturePresenter.getPicturesResult( "ar", "slider" );
+        }
+        else
+        {
+            Snackbar.make(relativeLayout ,getResources().getString( R.string.no_internet ),1500 ).show();
+        }
 
-            }
-        } );
+
 
     }
 
