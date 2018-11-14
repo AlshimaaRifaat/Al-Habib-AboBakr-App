@@ -43,7 +43,7 @@ NetworkConnection networkConnection;
         // Required empty public constructor
     }
 
-
+    String Image;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -55,8 +55,8 @@ NetworkConnection networkConnection;
         picturePresenter=new PicturePresenter( getContext(),this );
         Bundle bundle=getArguments();
         if(bundle!=null) {
-            String image=bundle.getString( "image" );
-            picturePresenter.getPicturesResult( "ar", image );
+            Image=bundle.getString( "image" );
+
         }
         swipRefresh();
         return view;
@@ -72,13 +72,12 @@ NetworkConnection networkConnection;
                 if (networkConnection.isNetworkAvailable( getContext() ))
                 {
                     mSwipeRefreshLayout.setRefreshing( true );
-                    picturePresenter.getPicturesResult( "ar","gallary" );
+                    picturePresenter.getPicturesResult( "ar",Image );
 
                 }
             }
         } );
     }
-
 
     @Override
     public void showPicturesData(List<PictureData> pictureData) {
@@ -91,7 +90,7 @@ NetworkConnection networkConnection;
         recyclerView.setAdapter( picturesAdapter );
   if(banne.size()>1) {
     Timer timer = new Timer();
-    timer.scheduleAtFixedRate( new AutoScrollTask(), 1000, 2000 );
+    timer.scheduleAtFixedRate( new AutoScrollTask(), 2000, 3500 );
    }
    mSwipeRefreshLayout.setRefreshing( false );
     }
@@ -104,7 +103,7 @@ NetworkConnection networkConnection;
     @Override
     public void onRefresh() {
         mSwipeRefreshLayout.setRefreshing( true );
-        picturePresenter.getPicturesResult( "ar","gallary" );
+        picturePresenter.getPicturesResult( "ar",Image );
     }
 
     private class AutoScrollTask extends TimerTask {

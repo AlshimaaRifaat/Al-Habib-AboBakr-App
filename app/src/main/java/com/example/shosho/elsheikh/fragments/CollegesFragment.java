@@ -52,7 +52,7 @@ public class CollegesFragment extends Fragment implements BookView,
         networkConnection=new NetworkConnection( getContext() );
         mSwipeRefreshLayout=view.findViewById( R.id.colleges_swipRefresh );
         bookPresenter=new BookPresenter( getContext(),this );
-        bookPresenter.getBooksResult( "en","instit" );
+        bookPresenter.getBooksResult( "ar","instit" );
 
 
         swipRefresh();
@@ -69,7 +69,7 @@ public class CollegesFragment extends Fragment implements BookView,
                 if (networkConnection.isNetworkAvailable( getContext() ))
                 {
                     mSwipeRefreshLayout.setRefreshing( true );
-                    bookPresenter.getBooksResult( "en","instit" );
+                    bookPresenter.getBooksResult( "ar","instit" );
                 }
             }
         } );
@@ -78,7 +78,7 @@ public class CollegesFragment extends Fragment implements BookView,
     @Override
     public void onRefresh() {
         mSwipeRefreshLayout.setRefreshing( true );
-        bookPresenter.getBooksResult( "en","instit" );
+        bookPresenter.getBooksResult( "ar","instit" );
 
     }
 

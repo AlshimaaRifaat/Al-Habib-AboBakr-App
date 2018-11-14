@@ -131,17 +131,16 @@ public class HomeFragment extends Fragment implements ItemsView,PictureView,Swip
         else if(position==6){
             PicturesFragment detailsPicture=new PicturesFragment();
             Bundle bundle = new Bundle();
-            bundle.putString("image","صور ناطقة");
+            bundle.putString("image","taking");
             detailsPicture.setArguments(bundle);
             getFragmentManager().beginTransaction().replace( R.id.main_frame_container,
                     detailsPicture )
                     .addToBackStack( null).commit();
-
         }
         else if(position==7){
             PicturesFragment detailsPicture=new PicturesFragment();
             Bundle bundle = new Bundle();
-            bundle.putString("image","رسومات");
+            bundle.putString("image","garphics");
             detailsPicture.setArguments(bundle);
             getFragmentManager().beginTransaction().replace( R.id.main_frame_container,
                     detailsPicture )
@@ -161,7 +160,7 @@ public class HomeFragment extends Fragment implements ItemsView,PictureView,Swip
         recyclerView_slider.setAdapter( sliderAdapter );
         if(pictureData.size()>1) {
             Timer timer = new Timer();
-            timer.scheduleAtFixedRate( new AutoScrollTask(), 1000, 3000 );
+            timer.scheduleAtFixedRate( new AutoScrollTask(), 2000, 4000 );
         }
         swipeRefreshLayout.setRefreshing( false );
     }
