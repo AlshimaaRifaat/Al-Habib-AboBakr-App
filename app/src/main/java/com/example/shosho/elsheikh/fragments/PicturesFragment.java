@@ -53,7 +53,11 @@ NetworkConnection networkConnection;
         networkConnection=new NetworkConnection( getContext() );
         mSwipeRefreshLayout=view.findViewById( R.id.pictures_swip_refresh );
         picturePresenter=new PicturePresenter( getContext(),this );
-        picturePresenter.getPicturesResult( "ar","gallary" );
+        Bundle bundle=getArguments();
+        if(bundle!=null) {
+            String image=bundle.getString( "image" );
+            picturePresenter.getPicturesResult( "ar", image );
+        }
         swipRefresh();
         return view;
     }

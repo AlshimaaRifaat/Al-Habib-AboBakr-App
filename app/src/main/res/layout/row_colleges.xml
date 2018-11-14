@@ -7,18 +7,7 @@
     android:layout_margin="@dimen/_1sdp"
     android:id="@+id/row_colleges_card_container">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-        <ProgressBar
-            android:id="@+id/row_colleges_progress_bar"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_45sdp"
-            android:visibility="gone"/>
-    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -36,6 +25,7 @@
             android:scaleType="fitXY"
             android:id="@+id/row_colleges_image"
             />
+
         <TextView
             android:text="####"
             android:id="@+id/row_colleges_title"
@@ -59,5 +49,16 @@
             android:layout_marginBottom="@dimen/_7sdp"
             android:visibility="gone"/>
     </LinearLayout>
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <ProgressBar
+            android:id="@+id/row_colleges_progress_bar"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:visibility="visible"/>
+    </RelativeLayout>
 </android.support.v7.widget.CardView>

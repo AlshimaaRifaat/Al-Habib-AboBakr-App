@@ -44,7 +44,6 @@ public class CollegesAdapter extends RecyclerView.Adapter<CollegesAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull final CollegesAdapter.ViewHolder holder, final int position) {
 
-
         holder.title.setText(booksData.get( position ).getTitle());
         Typeface customFontMedium = Typeface.createFromAsset( context.getAssets(), "Fonts/SST Arabic Medium.ttf" );
         holder.title.setTypeface( customFontMedium );
@@ -61,7 +60,6 @@ public class CollegesAdapter extends RecyclerView.Adapter<CollegesAdapter.ViewHo
                     @Override
                     public void onError() {
                         holder.progressBar.setVisibility( View.GONE );
-
                     }
                 } );
         holder.itemView.setOnClickListener( new View.OnClickListener() {

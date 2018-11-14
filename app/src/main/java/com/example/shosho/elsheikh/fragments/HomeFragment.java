@@ -87,10 +87,13 @@ public class HomeFragment extends Fragment implements ItemsView,PictureView,Swip
 
     }
     public void Home(){
+        //.....
         int []images={R.drawable.colleges,R.drawable.trips,R.drawable.books,
-                R.drawable.poetry,R.drawable.translation,R.drawable.pictures};
+                R.drawable.poetry,R.drawable.translation,R.drawable.pictures,
+                R.drawable.talking_pic,R.drawable.graphics};
         String []names={"الكليات والمعاهد","الرحلات الدعويه", "كتب مؤلفات",
-                "قصائد","ترجمه","صور"};
+                "قصائد","ترجمه","صور",
+                "صور ناطقه","رسومات"};
 
         recyclerAdapter=new HomeAdapter( getContext(),names,images );
         recyclerAdapter.OnClick( this );
@@ -116,7 +119,33 @@ public class HomeFragment extends Fragment implements ItemsView,PictureView,Swip
         }else if(position==4){
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,new TranslationFragment()).addToBackStack( null ).commit();
         }else if(position==5){
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,new PicturesFragment()).addToBackStack( null ).commit();
+            PicturesFragment detailsPicture=new PicturesFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("image","gallary");
+            detailsPicture.setArguments(bundle);
+            getFragmentManager().beginTransaction().replace( R.id.main_frame_container,
+                    detailsPicture )
+                    .addToBackStack( null).commit();
+
+        }
+        else if(position==6){
+            PicturesFragment detailsPicture=new PicturesFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("image","صور ناطقة");
+            detailsPicture.setArguments(bundle);
+            getFragmentManager().beginTransaction().replace( R.id.main_frame_container,
+                    detailsPicture )
+                    .addToBackStack( null).commit();
+
+        }
+        else if(position==7){
+            PicturesFragment detailsPicture=new PicturesFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("image","رسومات");
+            detailsPicture.setArguments(bundle);
+            getFragmentManager().beginTransaction().replace( R.id.main_frame_container,
+                    detailsPicture )
+                    .addToBackStack( null).commit();
         }
     }
 

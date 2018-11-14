@@ -7,10 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.example.shosho.elsheikh.R;
 import com.example.shosho.elsheikh.model.PictureData;
 import com.example.shosho.elsheikh.view.DetailsBookView;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -35,10 +37,20 @@ public class PicturesAdapter extends RecyclerView.Adapter<PicturesAdapter.ViewHo
 
 
     @Override
-    public void onBindViewHolder(@NonNull PicturesAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final PicturesAdapter.ViewHolder holder, final int position) {
+        holder.progressBar.setVisibility( View.VISIBLE );
         Picasso.with( context ).load( "http://alhabib-abobakr.com/uploads/"+
                 pictuesData.get( position ).getCImg() )
-        .into(holder.imageView);
+        .into( holder.imageView, new Callback() {
+            @Override
+            public void onSuccess() {
+                holder.progressBar.setVisibility( View.GONE );
+            }
+            @Override
+            public void onError() {
+            holder.progressBar.setVisibility( View.GONE );
+            }
+        } );
 
     }
 
@@ -49,9 +61,11 @@ public class PicturesAdapter extends RecyclerView.Adapter<PicturesAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView imageView;
+       private ProgressBar progressBar;
         public ViewHolder(View itemView) {
             super( itemView );
             imageView=itemView.findViewById( R.id.row_pictures_image );
+            progressBar=itemView.findViewById( R.id.row_pictures_progress );
         }
     }
 }
