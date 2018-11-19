@@ -49,8 +49,10 @@ public class CollegesFragment extends Fragment implements BookView,
         // Inflate the layout for this fragment
         View view= inflater.inflate( R.layout.fragment_colleges, container, false );
         recyclerView=view.findViewById( R.id.colleges_recycler_items );
+
         networkConnection=new NetworkConnection( getContext() );
         mSwipeRefreshLayout=view.findViewById( R.id.colleges_swipRefresh );
+
         bookPresenter=new BookPresenter( getContext(),this );
         bookPresenter.getBooksResult( "ar","instit" );
 
