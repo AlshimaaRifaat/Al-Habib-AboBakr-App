@@ -137,7 +137,7 @@
         android:layout_marginTop="@dimen/_8sdp"
         android:background="@drawable/suggestion_edit_text"
         android:paddingStart="@dimen/_10sdp"
-        android:paddingEnd="@dimen/_13sdp"
+        android:paddingEnd="@dimen/_10sdp"
         android:textColor="#000"
         />
 

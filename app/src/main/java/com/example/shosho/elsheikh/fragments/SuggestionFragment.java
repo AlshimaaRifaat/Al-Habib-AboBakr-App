@@ -36,7 +36,7 @@ public class SuggestionFragment extends Fragment implements SuggestionView {
     EditText userMsg;
 
     Button sendBtn;
-    String ApiToken="",Lang="",Section="";
+
     public SuggestionFragment() {
         // Required empty public constructor
     }
@@ -75,9 +75,7 @@ View view;
                     !userMsg.getText().toString().equals("")&&validateEmail()) {
                 User user = new User();
 
-                user.setApiToken( ApiToken );
-                user.setLang( Lang );
-                user.setSection( Section );
+
                 user.setName( userName.getText().toString() );
                 user.setEmail( userEmail.getText().toString() );
                 user.setPhone( userPhone.getText().toString() );
