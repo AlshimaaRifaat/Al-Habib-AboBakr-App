@@ -90,10 +90,10 @@ public class HomeFragment extends Fragment implements ItemsView,PictureView,Swip
         //.....
         int []images={R.drawable.colleges,R.drawable.trips,R.drawable.books,
                 R.drawable.poetry,R.drawable.translation,R.drawable.pictures,
-                R.drawable.talking_pic,R.drawable.graphics};
+                R.drawable.talking_pic,R.drawable.graphics,R.drawable.sugesstion};
         String []names={"الكليات والمعاهد","الرحلات الدعويه", "كتب مؤلفات",
                 "قصائد","ترجمه","صور",
-                "صور ناطقه","رسومات"};
+                "صور ناطقه","رسومات","المقترحات"};
 
         recyclerAdapter=new HomeAdapter( getContext(),names,images );
         recyclerAdapter.OnClick( this );
@@ -144,6 +144,14 @@ public class HomeFragment extends Fragment implements ItemsView,PictureView,Swip
             detailsPicture.setArguments(bundle);
             getFragmentManager().beginTransaction().replace( R.id.main_frame_container,
                     detailsPicture )
+                    .addToBackStack( null).commit();
+        }
+
+        else if(position==8){
+            SuggestionFragment suggestionFragment=new SuggestionFragment();
+
+            getFragmentManager().beginTransaction().replace( R.id.main_frame_container,
+                    suggestionFragment)
                     .addToBackStack( null).commit();
         }
     }

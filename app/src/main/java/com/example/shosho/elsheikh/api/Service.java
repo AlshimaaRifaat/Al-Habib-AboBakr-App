@@ -2,6 +2,7 @@ package com.example.shosho.elsheikh.api;
 
 import com.example.shosho.elsheikh.model.BooksResponse;
 import com.example.shosho.elsheikh.model.PicturesResponse;
+import com.example.shosho.elsheikh.model.SuggestionResponse;
 
 import java.util.Map;
 
@@ -18,4 +19,6 @@ public interface Service {
     @POST("Allpeotry/")
     Call<PicturesResponse>getPicturseData(@Body Map<String,String> map);
 
+    @POST("Allpeotry/")
+    Call<SuggestionResponse>getSuggestionData(@Body Map<String,String> map);
 }
